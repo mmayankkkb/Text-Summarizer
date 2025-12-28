@@ -9,7 +9,7 @@ PYAML
 matplotlib
 sacrebleu 
 torch
-python-box====5.4.1
+python-box==5.4.1
 ensure==1.0.2
 fastapi==0.78.0
 uvicorn==0.18.3
