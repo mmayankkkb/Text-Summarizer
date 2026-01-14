@@ -10,4 +10,8 @@ data_Validation:
   root_dir: artifacts/data_validation
   STATUS_FILE: artifacts/data_Validation/status.txt
   ALL_REQUIRED_FILES: ["train","test","validation","dataset_dict.json"]
-   
+
+data_Transformation:
+  root_dir: artifacts/data_Transformation
+  data_path: artifacts/data_ingestion/DataSet/samsum_dataset
+  tokenizer_name: google/pegasus-cnn_dailymail

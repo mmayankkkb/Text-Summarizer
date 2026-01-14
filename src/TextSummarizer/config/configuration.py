@@ -1,8 +1,9 @@
 from TextSummarizer.constants import *
 from TextSummarizer.utils.common import read_yaml, create_directories
 from TextSummarizer.entity import (DataIngestionConfig
-                                   ,DataValidationConfig)
-
+                                   ,DataValidationConfig
+                                   ,DataTransformationConfig)
+from TextSummarizer.logging import logger
 
 class ConfigurationManager:
         def __init__(
@@ -40,9 +41,24 @@ class ConfigurationManager:
                     STATUS_FILE= config.STATUS_FILE,
                     ALL_REQUIRED_FILES=config.ALL_REQUIRED_FILES,
               )
-
               return data_validation_config
         
+
+
+        def get_data_transformation_config(self) -> DataTransformationConfig:
+            config = self.config.data_Transformation
+
+            create_directories([(config.root_dir)]) # +"/DataSet/samsum_dataset"
+
+            data_transformation_config= DataTransformationConfig(
+                  root_dir=config.root_dir,
+                  data_path= config.data_path,
+                  tokenizer_name=config.tokenizer_name
+            )
+
+            return data_transformation_config
+
+
 
 
 
